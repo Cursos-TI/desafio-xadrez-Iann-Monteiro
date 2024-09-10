@@ -5,7 +5,6 @@
 
 int main() {
     
-    int main() {
     int bishopDirection = BISHOP_UP_RIGHT;
     int towerDirection = TOWER_RIGHT;
     int queenDirection = QUEEN_LEFT;
@@ -21,9 +20,6 @@ int main() {
     for (int i = 0; i < queenDirection; i++) {
         printf("Esquerda\n");
     }
-
-    return 0;
-}
 
     return 0;
 }
