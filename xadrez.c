@@ -1,24 +1,24 @@
 #include <stdio.h>
-#define BISHOP_UP_RIGHT 5
-#define TOWER_RIGHT 5
-#define QUEEN_LEFT 8
 
 int main() {
+
+    const int MOV_BISPO = 5;
+    const int MOV_TORRE = 5;
+    const int MOV_RAINHA = 8;
+
+    printf("Movendo o Bispo:\n");
+    for (int i = 1; i <= MOV_BISPO; i++) {
+        printf("Cima e Direita - Passo %d\n", i);
+    }
     
-    int bishopDirection = BISHOP_UP_RIGHT;
-    int towerDirection = TOWER_RIGHT;
-    int queenDirection = QUEEN_LEFT;
-
-    for (int i = 0; i < bishopDirection; i++) {
-        printf("Diagonal Superior Direita\n");
+    printf("\nMovendo a Torre:\n");
+    for (int i = 1; i <= MOV_TORRE; i++) {
+        printf("Direita - Passo %d\n", i);
     }
 
-    for (int i = 0; i < towerDirection; i++) {
-        printf("Direita\n");
-    }
-
-    for (int i = 0; i < queenDirection; i++) {
-        printf("Esquerda\n");
+    printf("\nMovendo a Rainha:\n");
+    for (int i = 1; i <= MOV_RAINHA; i++) {
+        printf("Esquerda - Passo %d\n", i);
     }
 
     return 0;
