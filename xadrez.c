@@ -1,39 +1,60 @@
 #include <stdio.h>
 
+void mover_bispo(int passo, const int max_passos) {
+    if (passo > max_passos) return;
+    printf("Cima e Direita - Passo %d\n", passo);
+    mover_bispo(passo + 1, max_passos);
+}
+
+void mover_torre(int passo, const int max_passos) {
+    if (passo > max_passos) return;
+    printf("Direita - Passo %d\n", passo);
+    mover_torre(passo + 1, max_passos);
+}
+
+void mover_rainha(int passo, const int max_passos) {
+    if (passo > max_passos) return;
+    printf("Esquerda - Passo %d\n", passo);
+    mover_rainha(passo + 1, max_passos);
+}
+
 int main() {
 
     const int MOV_BISPO = 5;
     const int MOV_TORRE = 5;
     const int MOV_RAINHA = 8;
-    const int MOV_CAVALO = 2;
-
+    
     printf("Movendo o Bispo:\n");
-    for (int i = 1; i <= MOV_BISPO; i++) {
-        printf("Cima e Direita - Passo %d\n", i);
-    }
+    mover_bispo(1, MOV_BISPO);
     
     printf("\nMovendo a Torre:\n");
-    for (int i = 1; i <= MOV_TORRE; i++) {
-        printf("Direita - Passo %d\n", i);
-    }
+    mover_torre(1, MOV_TORRE);
 
     printf("\nMovendo a Rainha:\n");
-    for (int i = 1; i <= MOV_RAINHA; i++) {
-        printf("Esquerda - Passo %d\n", i);
-    }
+    mover_rainha(1, MOV_RAINHA);
 
     printf("\nMovendo o Cavalo em L:\n");
-    for (int i = 1; i <= MOV_CAVALO; i++) {
-        printf("Baixo - Passo %d\n", i);
+    
+    int mov_vertical = 2;
+    int mov_horizontal = 1;
+
+    for (int i = 1; i <= mov_vertical; i++) {
+        printf("Cima - Passo %d\n", i);
         
-        int j = 1;
-        while (j <= MOV_CAVALO) {
-            printf("Esquerda - Passo %d\n", j);
-            j++;
+        for (int j = 1; j <= mov_horizontal; j++) {
+            if (j == 1) {
+                printf("Direita - Passo %d\n", j);
+            } else {
+                continue;
+            }
         }
 
-        printf("Fim do movimento em L\n");
+        if (i == 1) {
+            break;
+        }
     }
+
+    printf("Fim do movimento em L do Cavalo\n");
 
     return 0;
 }
